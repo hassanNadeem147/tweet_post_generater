@@ -20,4 +20,4 @@ out/
 .DS_Store
 Thumbs.db
 # Application logs
-logs/
+D:\langgraph\iterableworkflow\tweet_post_generater\logs
