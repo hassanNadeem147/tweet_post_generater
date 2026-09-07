@@ -1,0 +1,747 @@
+2026-09-07 17:08:34 | ERROR    | app.routes.tweet_route:generate_tweet:75 - Tweet generation failed | topic=Building better habits with tiny steps
+Writing style: Professional
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 332
+               │     └ 3
+               └ <function _main at 0x0000019DA60400E0>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 332
+           │    └ <function BaseProcess._bootstrap at 0x0000019DA5D87880>
+           └ <SpawnProcess name='SpawnProcess-1' parent=3824 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000019DA5D86DE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3824 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x0000019DA81C7A10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3824 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3824 started>
+    │    └ <function subprocess_started at 0x0000019DA825EDE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3824 started>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=340, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x0000019DA81C7B60>>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\server.py", line 77, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x0000019DA80BCD60>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x0000019DA81C7A10>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x0000019DA81C7B60>
+           │           │    │             └ [<socket.socket fd=340, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+           │           │    └ <function Server.serve at 0x0000019DA825DE40>
+           │           └ <uvicorn.server.Server object at 0x0000019DA81C7B60>
+           └ <function run at 0x0000019DA6041260>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 196, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x0000019DA8286880>
+           │      └ <function Runner.run at 0x0000019DA7F01A80>
+           └ <asyncio.runners.Runner object at 0x0000019DA82CC830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019DA7EFB600>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000019DA82CC830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 713, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019DA7EFB560>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 684, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019DA7F013A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019DA7A8AF20>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000019DA8401BE0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE0D0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x0000019DA8401E80>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000019DA8401BE0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE0D0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE0D0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000019DABA76A50>
+          └ <fastapi.applications.FastAPI object at 0x0000019DA8401E80>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000019DABAAF420>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000019DABA76900>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000019DABA76A50>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000019DABAAF420>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x0000019DABACC050>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000019DABA767B0>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000019DABA76900>
+          └ <function wrap_app_handling_exceptions at 0x0000019DA92D0400>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000019DABA767B0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x0000019DABABCB90>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000019DABA767B0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x0000019DABABCB90>>
+          └ <fastapi.routing.APIRouter object at 0x0000019DABABCB90>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function _IncludedRouter.handle at 0x0000019DA92E79C0>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x0000019DABA757F0>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+          │    │               │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │    │               │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │    │               │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    │               └ <function APIRouter.handle at 0x0000019DA930D9E0>
+          │    └ <fastapi.routing.APIRouter object at 0x0000019DABA757F0>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x0000019DABA757F0>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+          │               │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │               │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │               │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │               └ <function _IncludedRouter._handle_selected at 0x0000019DA92E7A60>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x0000019DABA757F0>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1800, in _handle_selected
+    await original_route.handle(scope, receive, send)
+          │              │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │              │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │              │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │              └ <function APIRoute.handle at 0x0000019DA92E59E0>
+          └ APIRoute(path='/generate_tweet', name='generate_tweet', methods=['POST'])
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1279, in handle
+    await app(scope, receive, send)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app at 0x0000019DABAAF100>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAEE80>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x0000019DABAA55B0>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x0000019DABAAF1A0>
+          └ <function wrap_app_handling_exceptions at 0x0000019DA92D0400>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000019DABAAF2E0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000019DABABE...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x0000019DABAAF1A0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 144, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x0000019DABAA55B0>
+                     └ <function get_request_handler.<locals>.app at 0x0000019DABAAF060>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x0000019DA92E4D60>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 352, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'request': TweetGenerationRequest(topic='Building better habits with tiny steps\nWriting style: Professional')}
+                 │         └ <member 'call' of 'Dependant' objects>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+> File "D:\langgraph\iterableworkflow\tweet_post_generater\app\routes\tweet_route.py", line 36, in generate_tweet
+    workflow_result = await app.ainvoke(initial_state)
+                            │   │       └ {'topic': 'Building better habits with tiny steps\nWriting style: Professional', 'tweet_generate': '', 'reviewer_decision': '...
+                            │   └ <function Pregel.ainvoke at 0x0000019DAB6D1A80>
+                            └ <langgraph.graph.state.CompiledStateGraph object at 0x0000019DAB97B8C0>
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\main.py", line 4090, in ainvoke
+    async for chunk in self.astream(
+              │        │    └ <function Pregel.astream at 0x0000019DAB6D0B80>
+              │        └ <langgraph.graph.state.CompiledStateGraph object at 0x0000019DAB97B8C0>
+              └ ('values', {'topic': 'Building better habits with tiny steps\nWriting style: Professional', 'tweet_generate': 'True habit gro...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3440, in astream
+    async for _ in runner.atick(
+              │    │      └ <function PregelRunner.atick at 0x0000019DAB672480>
+              │    └ <langgraph.pregel._runner.PregelRunner object at 0x0000019DABB54590>
+              └ None
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 396, in atick
+    await arun_with_retry(
+          └ <function arun_with_retry at 0x0000019DAB671BC0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+                 │    │            │    │      └ {'configurable': {'__pregel_runtime': Runtime(context=None, store=None, stream_writer=<function Pregel.astream.<locals>.strea...
+                 │    │            │    └ <member 'input' of 'PregelExecutableTask' objects>
+                 │    │            └ PregelExecutableTask(name='improve_tweet', input={'topic': 'Building better habits with tiny steps\nWriting style: Profession...
+                 │    └ <member 'proc' of 'PregelExecutableTask' objects>
+                 └ PregelExecutableTask(name='improve_tweet', input={'topic': 'Building better habits with tiny steps\nWriting style: Profession...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+                  │       └ <function create_task at 0x0000019DA7AD9DA0>
+                  └ <module 'asyncio' from 'C:\\Users\\hassa\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'topic': 'Building better habits with tiny steps\nWriting style: Professional', 'tweet_generate': 'True habit growth comes ...
+                │    └ <function improve_text at 0x0000019DABA204A0>
+                └ improve_tweet(tags=None, recurse=True, explode_args=False, func_accepts={})
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\app\graph\nodes.py", line 132, in improve_text
+    response = await llm_for_improvement.ainvoke(prompt)
+                     │                   │       └ '\nYou are a professional social media copywriter.\n\nYour task is to improve the generated tweet based on the reviewer\'s fe...
+                     │                   └ <function BaseChatModel.ainvoke at 0x0000019DAB8345E0>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 511, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                       │    └ <function BaseChatModel.agenerate_prompt at 0x0000019DAB835BC0>
+                       └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1888, in agenerate_prompt
+    return await self.agenerate(
+                 │    └ <function BaseChatModel.agenerate at 0x0000019DAB835A80>
+                 └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1846, in agenerate
+    raise exceptions[0]
+          └ [TooManyRequestsResponseError(message='Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model req...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2179, in _agenerate_with_cache
+    result = await self._agenerate(
+                   │    └ <function ChatOpenRouter._agenerate at 0x0000019DAB898EA0>
+                   └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_openrouter\chat_models.py", line 590, in _agenerate
+    response = await self.client.chat.send_async(messages=message_dicts, **params)
+                     │    │      │    │                   │                └ {'model': 'liquid/lfm-2.5-2.6b:free', 'stream': False, 'temperature': 0.7}
+                     │    │      │    │                   └ [{'role': 'user', 'content': '\nYou are a professional social media copywriter.\n\nYour task is to improve the generated twee...
+                     │    │      │    └ <function Chat.send_async at 0x0000019DABD9EE80>
+                     │    │      └ <openrouter.chat.Chat object at 0x0000019DACE2DBD0>
+                     │    └ <openrouter.sdk.OpenRouter object at 0x0000019DABA18910>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\openrouter\chat.py", line 1888, in send_async
+    raise errors.TooManyRequestsResponseError(
+          └ <module 'openrouter.errors' from 'D:\\langgraph\\iterableworkflow\\tweet_post_generater\\.venv\\Lib\\site-packages\\openroute...
+
+openrouter.errors.toomanyrequestsresponse_error.TooManyRequestsResponseError: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day
+During task with name 'improve_tweet' and id 'd486cc96-003d-a688-1191-3978b4b5a553'
+2026-09-07 17:13:19 | ERROR    | app.graph.nodes:generate_text:53 - Tweet generation node failed
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 336
+               │     └ 3
+               └ <function _main at 0x000001FF751300E0>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 336
+           │    └ <function BaseProcess._bootstrap at 0x000001FF74E77880>
+           └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001FF74E76DE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000001FF772B7A10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+    │    └ <function subprocess_started at 0x000001FF7732EDE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=592, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x000001FF772B7B60>>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\server.py", line 77, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x000001FF771BCD60>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x000001FF772B7A10>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x000001FF772B7B60>
+           │           │    │             └ [<socket.socket fd=592, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+           │           │    └ <function Server.serve at 0x000001FF7732DE40>
+           │           └ <uvicorn.server.Server object at 0x000001FF772B7B60>
+           └ <function run at 0x000001FF75131260>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 196, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x000001FF77356880>
+           │      └ <function Runner.run at 0x000001FF77021A80>
+           └ <asyncio.runners.Runner object at 0x000001FF7739C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001FF7701B600>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001FF7739C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 713, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001FF7701B560>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 684, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001FF770213A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001FF76BBAF20>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedback': '', 'iteration': 0, 'max_iteration': 5, 'impr...
+                │    └ <function generate_text at 0x000001FF7AB591C0>
+                └ generate_tweet(tags=None, recurse=True, explode_args=False, func_accepts={})
+
+> File "D:\langgraph\iterableworkflow\tweet_post_generater\app\graph\nodes.py", line 51, in generate_text
+    response = await llm_for_generation.ainvoke(prompt)
+                     │                  │       └ '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and engaging tweet about the giv...
+                     │                  └ <function BaseChatModel.ainvoke at 0x000001FF7A95E020>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 511, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                       │    └ <function BaseChatModel.agenerate_prompt at 0x000001FF7A95F600>
+                       └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1888, in agenerate_prompt
+    return await self.agenerate(
+                 │    └ <function BaseChatModel.agenerate at 0x000001FF7A95F4C0>
+                 └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1846, in agenerate
+    raise exceptions[0]
+          └ [TooManyRequestsResponseError(message='Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model req...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2179, in _agenerate_with_cache
+    result = await self._agenerate(
+                   │    └ <function ChatOpenRouter._agenerate at 0x000001FF7A9C28E0>
+                   └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_openrouter\chat_models.py", line 590, in _agenerate
+    response = await self.client.chat.send_async(messages=message_dicts, **params)
+                     │    │      │    │                   │                └ {'model': 'liquid/lfm-2.5-2.6b:free', 'stream': False, 'temperature': 0.7}
+                     │    │      │    │                   └ [{'role': 'user', 'content': '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and...
+                     │    │      │    └ <function Chat.send_async at 0x000001FF7AE62E80>
+                     │    │      └ <openrouter.chat.Chat object at 0x000001FF7ABA9940>
+                     │    └ <openrouter.sdk.OpenRouter object at 0x000001FF7AB5C830>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\openrouter\chat.py", line 1888, in send_async
+    raise errors.TooManyRequestsResponseError(
+          └ <module 'openrouter.errors' from 'D:\\langgraph\\iterableworkflow\\tweet_post_generater\\.venv\\Lib\\site-packages\\openroute...
+
+openrouter.errors.toomanyrequestsresponse_error.TooManyRequestsResponseError: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day
+2026-09-07 17:13:19 | ERROR    | app.routes.tweet_route:generate_tweet:75 - Tweet generation failed | topic=string
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 336
+               │     └ 3
+               └ <function _main at 0x000001FF751300E0>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 336
+           │    └ <function BaseProcess._bootstrap at 0x000001FF74E77880>
+           └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001FF74E76DE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000001FF772B7A10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+    │    └ <function subprocess_started at 0x000001FF7732EDE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=13456 started>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=592, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x000001FF772B7B60>>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\server.py", line 77, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x000001FF771BCD60>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x000001FF772B7A10>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x000001FF772B7B60>
+           │           │    │             └ [<socket.socket fd=592, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+           │           │    └ <function Server.serve at 0x000001FF7732DE40>
+           │           └ <uvicorn.server.Server object at 0x000001FF772B7B60>
+           └ <function run at 0x000001FF75131260>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 196, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x000001FF77356880>
+           │      └ <function Runner.run at 0x000001FF77021A80>
+           └ <asyncio.runners.Runner object at 0x000001FF7739C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001FF7701B600>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001FF7739C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 713, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001FF7701B560>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 684, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001FF770213A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001FF76BBAF20>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001FF7AB5E120>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E0D0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x000001FF774C1D30>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001FF7AB5E120>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E0D0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E0D0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001FF7AB5EBA0>
+          └ <fastapi.applications.FastAPI object at 0x000001FF774C1D30>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001FF7AB5B240>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001FF7AB5EA50>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001FF7AB5EBA0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001FF7AB5B240>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x000001FF7AB90050>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001FF7AB5E900>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001FF7AB5EA50>
+          └ <function wrap_app_handling_exceptions at 0x000001FF7838C4A0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001FF7AB5E900>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x000001FF7AB6CB90>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001FF7AB5E900>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x000001FF7AB6CB90>>
+          └ <fastapi.routing.APIRouter object at 0x000001FF7AB6CB90>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function _IncludedRouter.handle at 0x000001FF783A3A60>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x000001FF7AB5D550>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+          │    │               │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │    │               │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │    │               │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    │               └ <function APIRouter.handle at 0x000001FF783C9A80>
+          │    └ <fastapi.routing.APIRouter object at 0x000001FF7AB5D550>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x000001FF7AB5D550>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+          │               │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │               │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │               │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │               └ <function _IncludedRouter._handle_selected at 0x000001FF783A3B00>
+          └ _IncludedRouter(original_router=<fastapi.routing.APIRouter object at 0x000001FF7AB5D550>, include_context=_RouterIncludeConte...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1800, in _handle_selected
+    await original_route.handle(scope, receive, send)
+          │              │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │              │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │              │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │              └ <function APIRoute.handle at 0x000001FF783A1A80>
+          └ APIRoute(path='/generate_tweet', name='generate_tweet', methods=['POST'])
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 1279, in handle
+    await app(scope, receive, send)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app at 0x000001FF7AB5B2E0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B1A0>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x000001FF7AB556D0>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x000001FF7AB5B380>
+          └ <function wrap_app_handling_exceptions at 0x000001FF7838C4A0>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001FF7AB5B600>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001FF7AB6E...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x000001FF7AB5B380>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 144, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x000001FF7AB556D0>
+                     └ <function get_request_handler.<locals>.app at 0x000001FF7AB5AF20>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x000001FF783A0E00>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\fastapi\routing.py", line 352, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'request': TweetGenerationRequest(topic='string')}
+                 │         └ <member 'call' of 'Dependant' objects>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+> File "D:\langgraph\iterableworkflow\tweet_post_generater\app\routes\tweet_route.py", line 36, in generate_tweet
+    workflow_result = await app.ainvoke(initial_state)
+                            │   │       └ {'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedback': '', 'iteration': 0, 'max_iteration': 5, 'impro...
+                            │   └ <function Pregel.ainvoke at 0x000001FF7A791B20>
+                            └ <langgraph.graph.state.CompiledStateGraph object at 0x000001FF7AB5CEC0>
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\main.py", line 4090, in ainvoke
+    async for chunk in self.astream(
+              │        │    └ <function Pregel.astream at 0x000001FF7A790C20>
+              │        └ <langgraph.graph.state.CompiledStateGraph object at 0x000001FF7AB5CEC0>
+              └ ('values', {'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedback': '', 'iteration': 0, 'max_iteration'...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3440, in astream
+    async for _ in runner.atick(
+              │    │      └ <function PregelRunner.atick at 0x000001FF7A732520>
+              │    └ <langgraph.pregel._runner.PregelRunner object at 0x000001FF7ABA86E0>
+              └ None
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 396, in atick
+    await arun_with_retry(
+          └ <function arun_with_retry at 0x000001FF7A731C60>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+                 │    │            │    │      └ {'configurable': {'__pregel_runtime': Runtime(context=None, store=None, stream_writer=<function Pregel.astream.<locals>.strea...
+                 │    │            │    └ <member 'input' of 'PregelExecutableTask' objects>
+                 │    │            └ PregelExecutableTask(name='generate_tweet', input={'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedbac...
+                 │    └ <member 'proc' of 'PregelExecutableTask' objects>
+                 └ PregelExecutableTask(name='generate_tweet', input={'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedbac...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+                  │       └ <function create_task at 0x000001FF76C09DA0>
+                  └ <module 'asyncio' from 'C:\\Users\\hassa\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedback': '', 'iteration': 0, 'max_iteration': 5, 'impr...
+                │    └ <function generate_text at 0x000001FF7AB591C0>
+                └ generate_tweet(tags=None, recurse=True, explode_args=False, func_accepts={})
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\app\graph\nodes.py", line 51, in generate_text
+    response = await llm_for_generation.ainvoke(prompt)
+                     │                  │       └ '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and engaging tweet about the giv...
+                     │                  └ <function BaseChatModel.ainvoke at 0x000001FF7A95E020>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 511, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                       │    └ <function BaseChatModel.agenerate_prompt at 0x000001FF7A95F600>
+                       └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1888, in agenerate_prompt
+    return await self.agenerate(
+                 │    └ <function BaseChatModel.agenerate at 0x000001FF7A95F4C0>
+                 └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1846, in agenerate
+    raise exceptions[0]
+          └ [TooManyRequestsResponseError(message='Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model req...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2179, in _agenerate_with_cache
+    result = await self._agenerate(
+                   │    └ <function ChatOpenRouter._agenerate at 0x000001FF7A9C28E0>
+                   └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_openrouter\chat_models.py", line 590, in _agenerate
+    response = await self.client.chat.send_async(messages=message_dicts, **params)
+                     │    │      │    │                   │                └ {'model': 'liquid/lfm-2.5-2.6b:free', 'stream': False, 'temperature': 0.7}
+                     │    │      │    │                   └ [{'role': 'user', 'content': '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and...
+                     │    │      │    └ <function Chat.send_async at 0x000001FF7AE62E80>
+                     │    │      └ <openrouter.chat.Chat object at 0x000001FF7ABA9940>
+                     │    └ <openrouter.sdk.OpenRouter object at 0x000001FF7AB5C830>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\openrouter\chat.py", line 1888, in send_async
+    raise errors.TooManyRequestsResponseError(
+          └ <module 'openrouter.errors' from 'D:\\langgraph\\iterableworkflow\\tweet_post_generater\\.venv\\Lib\\site-packages\\openroute...
+
+openrouter.errors.toomanyrequestsresponse_error.TooManyRequestsResponseError: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day
+During task with name 'generate_tweet' and id '5e075787-341b-2bd2-6ab6-e4df094c0025'
+2026-09-07 17:18:54 | ERROR    | app.graph.nodes:generate_text:53 - Tweet generation node failed
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 324
+               │     └ 3
+               └ <function _main at 0x00000194220700E0>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 324
+           │    └ <function BaseProcess._bootstrap at 0x0000019421D87880>
+           └ <SpawnProcess name='SpawnProcess-1' parent=14180 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000019421D86DE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14180 started>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x0000019424237A10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14180 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14180 started>
+    │    └ <function subprocess_started at 0x00000194242AEDE0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14180 started>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=348, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x0000019424237B60>>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\uvicorn\server.py", line 77, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x000001942413CD60>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x0000019424237A10>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x0000019424237B60>
+           │           │    │             └ [<socket.socket fd=348, family=2, type=1, proto=6, laddr=('127.0.0.1', 8000)>]
+           │           │    └ <function Server.serve at 0x00000194242ADE40>
+           │           └ <uvicorn.server.Server object at 0x0000019424237B60>
+           └ <function run at 0x0000019422071260>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 196, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x00000194242D6880>
+           │      └ <function Runner.run at 0x0000019423FA1A80>
+           └ <asyncio.runners.Runner object at 0x000001942431C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019423F9B600>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001942431C830>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 713, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019423F9B560>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 684, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019423FA13A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019423B3AF20>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\hassa\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'topic': 'string', 'tweet_generate': '', 'reviewer_decision': '', 'feedback': '', 'iteration': 0, 'max_iteration': 5, 'impr...
+                │    └ <function generate_text at 0x0000019427AD99E0>
+                └ generate_tweet(tags=None, recurse=True, explode_args=False, func_accepts={})
+
+> File "D:\langgraph\iterableworkflow\tweet_post_generater\app\graph\nodes.py", line 51, in generate_text
+    response = await llm_for_generation.ainvoke(prompt)
+                     │                  │       └ '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and engaging tweet about the giv...
+                     │                  └ <function BaseChatModel.ainvoke at 0x000001942799A700>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 511, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                       │    └ <function BaseChatModel.agenerate_prompt at 0x000001942799BCE0>
+                       └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1888, in agenerate_prompt
+    return await self.agenerate(
+                 │    └ <function BaseChatModel.agenerate at 0x000001942799BBA0>
+                 └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1846, in agenerate
+    raise exceptions[0]
+          └ [TooManyRequestsResponseError(message='Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model req...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2179, in _agenerate_with_cache
+    result = await self._agenerate(
+                   │    └ <function ChatOpenRouter._agenerate at 0x0000019427A06FC0>
+                   └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\langchain_openrouter\chat_models.py", line 590, in _agenerate
+    response = await self.client.chat.send_async(messages=message_dicts, **params)
+                     │    │      │    │                   │                └ {'model': 'liquid/lfm-2.5-2.6b:free', 'stream': False, 'temperature': 0.7}
+                     │    │      │    │                   └ [{'role': 'user', 'content': '\nYou are a professional social media copywriter.\n\nYour task is to write one professional and...
+                     │    │      │    └ <function Chat.send_async at 0x0000019427DE7740>
+                     │    │      └ <openrouter.chat.Chat object at 0x0000019427B39940>
+                     │    └ <openrouter.sdk.OpenRouter object at 0x0000019427AE46E0>
+                     └ ChatOpenRouter(metadata={'lc_versions': {'langchain-core': '1.6.2', 'langchain': '1.4.0', 'langchain-openrouter': '0.2.8'}}, ...
+  File "D:\langgraph\iterableworkflow\tweet_post_generater\.venv\Lib\site-packages\openrouter\chat.py", line 1888, in send_async
+    raise errors.TooManyRequestsResponseError(
+          └ <module 'openrouter.errors' from 'D:\\langgraph\\iterableworkflow\\tweet_post_generater\\.venv\\Lib\\site-packages\\openroute...
+
+openrouter.errors.toomanyrequestsresponse_error.TooManyRequestsResponseError: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day

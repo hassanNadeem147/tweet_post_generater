@@ -1,0 +1,22 @@
+2026-09-07 17:06:52 | INFO     | app.routes.tweet_route:generate_tweet:20 - Tweet generation started | topic=Building better habits with tiny steps
+Writing style: Professional
+2026-09-07 17:11:18 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 17:13:19 | INFO     | app.routes.tweet_route:generate_tweet:20 - Tweet generation started | topic=string
+2026-09-07 17:13:19 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=6
+2026-09-07 17:18:53 | INFO     | app.routes.tweet_route:generate_tweet:21 - Tweet generation started | topic=string
+2026-09-07 17:18:53 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=6
+2026-09-07 17:18:54 | WARNING  | app.routes.tweet_route:generate_tweet:75 - OpenRouter rate limit exceeded | topic_length=6 | provider_error=Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day
+2026-09-07 17:25:41 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 17:27:07 | INFO     | app.routes.tweet_route:generate_tweet:21 - Tweet generation started | topic=Building better habits with tiny steps
+Writing style: Professional
+2026-09-07 17:27:07 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=66
+2026-09-07 17:27:13 | INFO     | app.graph.nodes:generate_text:57 - Tweet generation node completed | characters=210
+2026-09-07 17:27:13 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=0 | characters=210
+2026-09-07 17:27:22 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=0
+2026-09-07 17:27:22 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=0 | feedback=The tweet reads as generic and overly formulaic, which makes it sound AI-generated. Specifically: 1) The repetition of "small" and "tiny" is redundant. 2) Phrases like "watch transformation unfold" feel cliché. 3) The overall structure follows a typical AI motivational pattern (contradiction opener + bullet-style advice + uplifting closer). To sound more human, consider a more specific or unique angle — perhaps a personal observation, a concrete example, or a less predictable takeaway. The content itself is fine, but the voice needs to feel less templated.
+2026-09-07 17:27:22 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=0
+2026-09-07 17:27:29 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=1 | characters=193
+2026-09-07 17:27:29 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=1 | characters=193
+2026-09-07 17:27:35 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=approved | iteration=1
+2026-09-07 17:27:35 | INFO     | app.graph.nodes:reviewer_router:184 - Tweet workflow approved | iteration=1
+2026-09-07 17:27:35 | INFO     | app.routes.tweet_route:generate_tweet:55 - Tweet generation completed | decision=approved | iteration=1

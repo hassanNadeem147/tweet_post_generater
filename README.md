@@ -1,382 +1,330 @@
-# Automated Tweet Post Generator
+# TweetAI Generator
 
-An AI-powered web application that generates engaging tweets from a simple topic or idea.
+TweetAI Generator is a full-stack application that turns a topic or idea into a polished tweet. The backend uses FastAPI and a LangGraph workflow to generate, review, and improve the tweet with OpenRouter-hosted language models. The frontend is a Next.js writing studio with style presets, copy support, and browser-local generation history.
 
-Enter a topic such as **Artificial Intelligence**, and the application uses an LLM with a **LangGraph** workflow to generate a concise tweet ready to post.
+## What It Does
 
-## Features
+1. The user enters a topic and selects a writing style in the Next.js frontend.
+2. The frontend sends the topic to the FastAPI endpoint `POST /api/generate_tweet`.
+3. FastAPI validates the request with Pydantic.
+4. LangGraph generates an initial tweet.
+5. A reviewer model checks relevance, clarity, length, tone, and formatting.
+6. If the tweet is rejected, an improvement model revises it.
+7. The workflow repeats review and improvement until the tweet is approved or five iterations have been reached.
+8. The final tweet is returned to the frontend and saved in the browser's local storage history.
 
-- Generate a tweet from any topic
-- LLM-powered tweet generation
-- LangGraph workflow
-- LangChain integration
-- FastAPI backend
-- Next.js frontend
-- Pydantic request validation
-- Simple project structure
-- Easy local development setup
+The generated tweet is instructed to be plain text, between 150 and 280 characters, without hashtags, markdown, greetings, or unnecessary symbols.
 
-## Tech Stack
+## Technology
 
 ### Backend
 
-- Python
+- Python 3.13+
 - FastAPI
+- Uvicorn
+- Pydantic and pydantic-settings
 - LangChain
 - LangGraph
-- Pydantic
-- OpenAI / LLM
+- `langchain-openrouter`
+- Loguru
 
 ### Frontend
 
-- Next.js
-- React
-- Node.js
-- npm
+- Next.js 15.5.25
+- React 19
+- TypeScript
+- CSS
+- Node.js and npm
 
 ## Project Structure
 
 ```text
-tweet_post_generater/
-│
-├── app/
-│   ├── graph/
-│   │   ├── nodes.py
-│   │   ├── state.py
-│   │   └── workflow.py
-│   │
-│   ├── routes/
-│   │   └── tweet_route.py
-│   │
-│   ├── schema/
-│   │   └── tweet_schema.py
-│   │
-│   └── main.py
-│
-├── frontend/
-│   └── nextjs/
-│
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
+ tweet_post_generater/
+ ├── app/
+ │   ├── config/
+ │   │   └── settings.py              # Environment-backed application settings
+ │   ├── graph/
+ │   │   ├── nodes.py                 # Generate, review, improve, and routing logic
+ │   │   ├── state.py                 # LangGraph state and reviewer schema
+ │   │   └── workflow.py               # LangGraph graph definition
+ │   ├── logging/
+ │   │   └── logger.py                # Console and rotating file logging
+ │   ├── routes/
+ │   │   └── tweet_route.py            # Tweet generation API endpoint
+ │   ├── schema/
+ │   │   └── tweet_schema.py           # Request and response models
+ │   ├── tests/
+ │   │   └── tweet_generation_workflow_test.py
+ │   └── main.py                       # FastAPI application entry point
+ ├── frontend/
+ │   └── nextjs/
+ │       ├── app/
+ │       │   ├── page.tsx              # Interactive generator page
+ │       │   ├── layout.tsx            # App metadata and root layout
+ │       │   └── globals.css            # Frontend visual system
+ │       ├── next.config.mjs           # API rewrite to FastAPI
+ │       ├── package.json
+ │       └── tsconfig.json
+ ├── logs/                             # Runtime log files
+ ├── .env-example                      # Backend environment template
+ ├── .gitignore
+ ├── requirements.txt
+ └── README.md
 ```
 
-### Folder Overview
+Generated folders such as `.venv`, `__pycache__`, `node_modules`, and `.next` are local runtime/build artifacts and should not be committed.
 
-| File / Folder | Purpose |
-|---|---|
-| `app/` | Main backend application |
-| `app/graph/` | LangGraph workflow and AI logic |
-| `app/graph/nodes.py` | Workflow nodes |
-| `app/graph/state.py` | LangGraph state |
-| `app/graph/workflow.py` | LangGraph workflow definition |
-| `app/routes/` | FastAPI API routes |
-| `app/routes/tweet_route.py` | Tweet generation endpoint |
-| `app/schema/` | Pydantic request/response schemas |
-| `app/schema/tweet_schema.py` | Tweet API schemas |
-| `app/main.py` | FastAPI application entry point |
-| `frontend/nextjs/` | Next.js frontend |
+## Prerequisites
 
-## How It Works
+Install the following before starting the project:
 
-```text
-User
-  │
-  │ Enter topic
-  ▼
-Next.js Frontend
-  │
-  │ HTTP Request
-  ▼
-FastAPI Backend
-  │
-  ▼
-LangGraph Workflow
-  │
-  ▼
-LLM
-  │
-  │ Generate tweet
-  ▼
-FastAPI Response
-  │
-  ▼
-Next.js Frontend
-  │
-  ▼
-Generated Tweet
-```
-
-### Workflow
-
-1. The user enters a topic in the Next.js frontend.
-2. The frontend sends the topic to the FastAPI backend.
-3. FastAPI validates the request with Pydantic.
-4. The request is passed to the LangGraph workflow.
-5. LangGraph executes the configured workflow nodes.
-6. The LLM generates the tweet.
-7. The generated tweet is returned by the backend.
-8. The frontend displays the generated tweet.
-
-## Requirements
-
-Make sure you have:
-
-- Python 3.13+
-- Node.js 18+
+- Python 3.13 or newer
+- Node.js 18 or newer
 - npm
-- An API key for the configured LLM provider
+- An OpenRouter API key with access to the configured models
 
-Check your installed versions:
+Verify the tools:
 
-```bash
+```powershell
 python --version
 node --version
 npm --version
 ```
 
-## Installation
+## Configuration
 
-### 1. Clone the Repository
+Create a `.env` file in the repository root. Use `.env-example` as the template:
 
-```bash
-git clone https://github.com/hassanNadeem147/tweet_post_generater.git
-cd tweet_post_generater
+```env
+OPENROUTER_API_KEY=your-openrouter-api-key
+MODEL_NAME_TWEET_GENERATION=liquid/lfm-2.5-2.6b:free
+TEMPERATURE_TWEET_GENERATION=0.7
+MODEL_NAME_TWEET_REVIEW=minimax/minimax-m3:free
+TEMPERATURE_TWEET_REVIEW=0.3
+MODEL_NAME_IMPROVE_TWEET=liquid/lfm-2.5-2.6b:free
+TEMPERATURE_IMPROVE_TWEET=0.7
 ```
 
-### 2. Create a Python Virtual Environment
+`app/config/settings.py` loads these values from `.env` when the backend starts. Never commit `.env` or expose the API key in frontend code.
 
-The backend uses a Python virtual environment.
+## Backend Setup
 
-#### Windows
+From the repository root, create and activate the Python virtual environment.
 
-```bash
-py -3.13 -m venv .venv
-```
-
-Activate it in Git Bash:
-
-```bash
-source .venv/Scripts/activate
-```
-
-Or in PowerShell:
+### Windows PowerShell
 
 ```powershell
+py -3.13 -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .venv\Scripts\Activate.ps1
 ```
 
-#### macOS / Linux
+### macOS or Linux
 
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Install Backend Dependencies
-
-From the project root:
+Install backend dependencies:
 
 ```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
-
-Create a `.env` file in the project root using `.env.example` as a template.
-
-```env
-OPENAI_API_KEY=your-openai-api-key
-```
-
-> **Important:** Never commit `.env` or your real API keys to GitHub.
-
-## Run the Backend
-
-From the project root, with the virtual environment activated:
+Start the API from the repository root:
 
 ```bash
-python app/main.py
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-The FastAPI backend will run at:
+The backend will be available at:
 
-```text
-http://127.0.0.1:8000
-```
+- API root: `http://127.0.0.1:8000/`
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- OpenAPI schema: `http://127.0.0.1:8000/openapi.json`
 
-FastAPI interactive documentation:
+The backend is started with Uvicorn. Running `python app/main.py` does not start a server because `app/main.py` defines the FastAPI application but does not call Uvicorn directly.
 
-```text
-http://127.0.0.1:8000/docs
-```
+## Frontend Setup
 
-## Run the Frontend
+Open a second terminal and move to the Next.js directory:
 
-Open a second terminal.
-
-Go to the Next.js application:
-
-```bash
-cd frontend/nextjs
-```
-
-Install frontend dependencies:
-
-```bash
+```powershell
+cd frontend\nextjs
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-The frontend will run at:
+Open `http://localhost:3000` in a browser. If that port is already in use, Next.js selects another available port and prints it in the terminal.
+
+The frontend sends requests to `/api/generate_tweet`. `next.config.mjs` rewrites that request to:
 
 ```text
-http://localhost:3000
+http://127.0.0.1:8000/api/generate_tweet
 ```
 
-## Generate a Tweet
+This keeps the browser request same-origin and avoids requiring frontend CORS configuration during local development.
 
-After starting both the backend and frontend:
+## Frontend Features
 
-1. Open `http://localhost:3000`
-2. Enter a topic, for example:
+- Topic textarea with a 500-character input limit
+- Professional, Casual, Funny, Informative, and Engaging style presets
+- Starter topic suggestions
+- Loading and validation states
+- Generated tweet display with character count
+- Copy-to-clipboard action
+- Recent generation history stored in browser local storage
+- Responsive layout for desktop and mobile screens
+- Clear display of backend error details, including provider rate-limit responses
 
-   ```text
-   Artificial Intelligence
-   ```
+The selected style is included in the topic sent to the current backend contract. The API intentionally accepts one `topic` string and returns one `tweet` string.
 
-3. Click **Generate**.
-4. The frontend sends the topic to the backend.
-5. LangGraph runs the AI workflow.
-6. The LLM generates the tweet.
-7. The generated tweet is displayed in the frontend.
+## API Reference
 
-## API
+### `GET /`
 
-The tweet generation API is defined in:
+Returns a basic health and welcome message.
 
-```text
-app/routes/tweet_route.py
+### `POST /api/generate_tweet`
+
+Request body:
+
+```json
+{
+  "topic": "The future of AI in healthcare"
+}
 ```
 
-You can view and test the available endpoints through:
+Successful response:
 
-```text
-http://127.0.0.1:8000/docs
+```json
+{
+  "tweet": "A generated tweet appears here."
+}
 ```
 
-The exact endpoint and request format depend on the implementation.
+The endpoint returns HTTP `200` when generation completes, including when the workflow stops after the maximum number of review iterations.
+
+When the OpenRouter provider rate limit is reached, the endpoint returns HTTP `429`:
+
+```json
+{
+  "detail": "The AI provider rate limit has been reached. Please try again later or add credits to your OpenRouter account."
+}
+```
+
+Unexpected workflow failures continue to return an error response and are recorded with their traceback in the error log.
 
 ## LangGraph Workflow
 
-The LangGraph implementation is located in:
+The graph in `app/graph/workflow.py` follows this path:
 
 ```text
-app/graph/
+START
+  |
+  v
+Generate tweet
+  |
+  v
+Review tweet
+  |---------------- approved ----------------> END
+  |
+ rejected
+  v
+Improve tweet
+  |
+  +----------------------> Review tweet
 ```
 
-### Main Files
+The workflow state contains the topic, current tweet, reviewer decision, feedback, current iteration, maximum iteration count, and an improvement field. The router ends the workflow when the reviewer approves the tweet or when the iteration count reaches five.
 
-- `state.py` — defines the workflow state
-- `nodes.py` — contains the workflow nodes
-- `workflow.py` — builds and connects the LangGraph workflow
+The reviewer uses structured output defined by `TweetEvaluation`, with:
 
-The workflow can later be extended:
+- `evaluation`: `approved` or `rejected`
+- `feedback`: actionable review feedback
+
+## Logging
+
+Logging is configured centrally in `app/logging/logger.py` with Loguru.
+
+### Console
+
+INFO and higher messages are printed to the terminal with timestamps, log levels, module names, function names, and line numbers.
+
+### Files
+
+- `logs/app_info.log`: INFO and WARNING records, including workflow stages, approvals, rejected reviews, maximum-iteration stops, health checks, and OpenRouter rate-limit events
+- `logs/app_error.log`: ERROR records and full exception tracebacks for unexpected failures
+
+Log files rotate at 10 MB, are retained for seven days, and are compressed after rotation.
+
+The application avoids logging the API key. Topics are currently included in request logs to help diagnose generation requests, so treat log files as application data.
+
+## Troubleshooting
+
+### `npm` is not recognized
+
+The Python virtual environment does not install or activate Node.js. Install Node.js, restart VS Code or open a new terminal, and verify:
+
+```powershell
+node --version
+npm --version
+```
+
+If Node.js is installed at `C:\Program Files\nodejs` but the current terminal cannot find it, open a fresh terminal or temporarily add it to the current PowerShell session:
+
+```powershell
+$env:Path += ';C:\Program Files\nodejs'
+```
+
+### Missing `.next` manifest or HTTP 500 from Next.js
+
+A stale or incomplete development build can leave the `.next` directory without required generated manifests. Stop the frontend server and rebuild the generated directory:
+
+```powershell
+cd frontend\nextjs
+Remove-Item .next -Recurse -Force
+npm run dev
+```
+
+### OpenRouter `free-models-per-day` rate limit
+
+The configured free models can exhaust the provider's daily quota. The backend records this as a WARNING and returns HTTP `429`. Wait for the quota to reset, add credits to the OpenRouter account, or update the model names in `.env` to models available to your account.
+
+### Frontend shows a generation error
+
+Check both running terminals and inspect:
 
 ```text
-Topic
-  │
-  ▼
-Generate Tweet
-  │
-  ▼
-Review Tweet
-  │
-  ▼
-Improve Tweet
-  │
-  ▼
-Final Tweet
+logs/app_info.log
+logs/app_error.log
 ```
 
-## Environment and Git
+Confirm that the backend is running on port `8000`, the frontend is running, and `OPENROUTER_API_KEY` and all model/temperature variables are present in `.env`.
 
-Do **not** commit these files or folders:
+## Validation
 
-```text
-.env
-.venv/
-venv/
-node_modules/
-.next/
-__pycache__/
+Backend syntax can be checked without calling the LLM:
+
+```powershell
+.\.venv\Scripts\python.exe -m compileall -q app
 ```
 
-These files should be committed:
+The frontend can be checked and built with:
 
-```text
-.env.example
-.gitignore
-requirements.txt
-frontend/nextjs/package.json
-frontend/nextjs/package-lock.json
-README.md
+```powershell
+cd frontend\nextjs
+npm run build
 ```
 
-## Future Improvements
+The file under `app/tests/` is a workflow smoke script that invokes the real LLM workflow. It is not a fully isolated pytest suite and may consume provider quota when executed.
 
-- Generate multiple tweet variations
-- Add different writing styles
-- Add tone selection
-- Add tweet length control
-- Add hashtag generation
-- Add tweet quality scoring
-- Add tweet regeneration
-- Generate Twitter/X threads
-- Add authentication
-- Store generated tweets
-- Add database support
-- Add automated testing
-- Deploy the application
+## Security and Repository Hygiene
 
-## Contributing
+- Keep `.env` and API keys out of version control.
+- Do not commit `.venv`, `node_modules`, `.next`, or Python cache directories.
+- Review log files before sharing them because request topics may be included.
+- Use provider models and API credits appropriate for production workloads; free-model quotas are intended for limited development use.
 
-Contributions are welcome.
-
-1. Fork the repository.
-2. Create a feature branch:
-
-```bash
-git checkout -b feature/my-feature
-```
-
-3. Make your changes.
-4. Commit your changes:
-
-```bash
-git commit -m "Add new feature"
-```
-
-5. Push your branch:
-
-```bash
-git push origin feature/my-feature
-```
-
-6. Open a Pull Request.
-
-## License
-
-This project is available for learning and development purposes.
-
-## Project Goal
-
-This project demonstrates how **LangGraph, LangChain, LLMs, FastAPI, Pydantic, and Next.js** can be combined to build a simple end-to-end AI application.
-
-The project is intentionally kept small so the backend, frontend, API communication, and LangGraph workflow are easy to understand and extend.
