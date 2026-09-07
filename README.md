@@ -153,8 +153,8 @@ npm --version
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/hassanNadeem147/tweet_post_generater.git
+cd tweet_post_generater
 ```
 
 ### 2. Create a Python Virtual Environment
