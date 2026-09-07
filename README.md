@@ -55,6 +55,7 @@ The generated tweet is instructed to be plain text, between 150 and 280 characte
  │   │   └── tweet_schema.py           # Request and response models
  │   ├── tests/
  │   │   └── tweet_generation_workflow_test.py
+ │   ├── Dockerfile                     # Backend container image
  │   └── main.py                       # FastAPI application entry point
  ├── frontend/
  │   └── nextjs/
@@ -64,8 +65,12 @@ The generated tweet is instructed to be plain text, between 150 and 280 characte
  │       │   └── globals.css            # Frontend visual system
  │       ├── next.config.mjs           # API rewrite to FastAPI
  │       ├── package.json
- │       └── tsconfig.json
+ │       ├── tsconfig.json
+ │       ├── Dockerfile                # Frontend production image
+ │       └── .dockerignore             # Frontend build-context exclusions
  ├── logs/                             # Runtime log files
+ ├── docker-compose.yaml               # Backend/frontend service orchestration
+ ├── .dockerignore                     # Backend build-context exclusions
  ├── .env-example                      # Backend environment template
  ├── .gitignore
  ├── requirements.txt
@@ -166,6 +171,64 @@ http://127.0.0.1:8000/api/generate_tweet
 ```
 
 This keeps the browser request same-origin and avoids requiring frontend CORS configuration during local development.
+
+## Run with Docker
+
+Docker Compose runs the backend and frontend as separate services. The backend is published on port `8000`, and the frontend is published on port `3000`.
+
+Create a valid `.env` file in the repository root before starting the stack. Compose passes it to the backend container. Keep the OpenRouter API key out of the frontend image and out of `docker-compose.yaml`.
+
+From the repository root:
+
+```powershell
+docker compose up --build
+```
+
+Open `http://localhost:3000` after startup. The frontend container reaches the backend through the Docker service name `backend` at `http://backend:8000`. Inside a container, `127.0.0.1` refers to that same container.
+
+Run in the background:
+
+```powershell
+docker compose up --build -d
+```
+
+Check service status and logs:
+
+```powershell
+docker compose ps
+docker compose logs -f backend
+docker compose logs -f frontend
+```
+
+The backend health check must pass before Compose starts the frontend. Application logs are persisted to the host through `./logs:/app/logs`:
+
+```text
+logs/app_info.log
+logs/app_error.log
+```
+
+Stop the stack:
+
+```powershell
+docker compose down
+```
+
+Rebuild from scratch after Dockerfile or dependency changes:
+
+```powershell
+docker compose down
+docker compose build --no-cache
+docker compose up
+```
+
+Direct image builds:
+
+```powershell
+docker build -f app/Dockerfile -t tweetai-backend .
+docker build -t tweetai-frontend frontend/nextjs
+```
+
+For local development, Compose is recommended because it configures service networking, environment variables, log persistence, and health-based startup ordering.
 
 ## Frontend Features
 
@@ -296,22 +359,9 @@ The configured free models can exhaust the provider's daily quota. The backend r
 ### Frontend shows a generation error
 
 Check both running terminals and inspect:
-
-```text
-logs/app_info.log
-logs/app_error.log
-```
-
-Confirm that the backend is running on port `8000`, the frontend is running, and `OPENROUTER_API_KEY` and all model/temperature variables are present in `.env`.
-
 ## Validation
 
 Backend syntax can be checked without calling the LLM:
-
-```powershell
-.\.venv\Scripts\python.exe -m compileall -q app
-```
-
 The frontend can be checked and built with:
 
 ```powershell

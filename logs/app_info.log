@@ -20,3 +20,109 @@ Writing style: Professional
 2026-09-07 17:27:35 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=approved | iteration=1
 2026-09-07 17:27:35 | INFO     | app.graph.nodes:reviewer_router:184 - Tweet workflow approved | iteration=1
 2026-09-07 17:27:35 | INFO     | app.routes.tweet_route:generate_tweet:55 - Tweet generation completed | decision=approved | iteration=1
+2026-09-07 17:47:46 | INFO     | app.routes.tweet_route:generate_tweet:21 - Tweet generation started | topic=Pakistan beauty
+Writing style: Funny
+2026-09-07 17:47:46 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=36
+2026-09-07 17:47:55 | INFO     | app.graph.nodes:generate_text:57 - Tweet generation node completed | characters=163
+2026-09-07 17:47:55 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=0 | characters=163
+2026-09-07 17:47:56 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=approved | iteration=0
+2026-09-07 17:47:56 | INFO     | app.graph.nodes:reviewer_router:184 - Tweet workflow approved | iteration=0
+2026-09-07 17:47:56 | INFO     | app.routes.tweet_route:generate_tweet:55 - Tweet generation completed | decision=approved | iteration=0
+2026-09-07 13:23:12 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:23:42 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:24:13 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:24:13 | INFO     | app.routes.tweet_route:generate_tweet:21 - Tweet generation started | topic=What makes a great creative team
+Writing style: Professional
+2026-09-07 13:24:13 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=60
+2026-09-07 13:24:25 | INFO     | app.graph.nodes:generate_text:57 - Tweet generation node completed | characters=263
+2026-09-07 13:24:26 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=0 | characters=263
+2026-09-07 13:24:29 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=0
+2026-09-07 13:24:29 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=0 | feedback=The tweet reads as generic and AI-generated. It strings together several broad, cliché statements ("extraordinary work emerges," "talent aligns with purpose," "fuel innovation") without offering a specific insight, example, or unique perspective. To make it sound more human and valuable, consider grounding it in a concrete observation, a contrasting point, or a specific element that distinguishes truly great teams from merely competent ones. The tone is also somewhat flat — a professional tweet should still have a distinctive voice or angle.
+2026-09-07 13:24:29 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=0
+2026-09-07 13:24:41 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=1 | characters=296
+2026-09-07 13:24:41 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=1 | characters=296
+2026-09-07 13:24:43 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:24:46 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=1
+2026-09-07 13:24:46 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=1 | feedback=The phrase "productive friction" is a meaningful concept but the surrounding language feels over-polished and formulaic in a way that signals AI-generated writing. Specifically, "flourishes through productive friction," "safe consensus," "bold, distilled work," and "where talent serves the project, not just the ego" read like a stack of buzzword phrases rather than natural professional prose. It also leans a bit abstract and could be made more concrete with a brief example or sharper take. Consider tightening the language so it sounds like something a real person would type, not a string of clever-sounding fragments.
+2026-09-07 13:24:46 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=1
+2026-09-07 13:25:03 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=2 | characters=217
+2026-09-07 13:25:03 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=2 | characters=217
+2026-09-07 13:25:08 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=2
+2026-09-07 13:25:08 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=2 | feedback=The tweet has several issues:
+
+1. It opens with "A great creative team thrives on healthy debate." This is a vague, generic statement that sounds like a textbook definition rather than an insight from experience. It's the kind of opener AI tends to produce.
+
+2. "Instead of settling for easy agreement, they push each other's boundaries to sharpen the output" — the phrase "easy agreement" and "sharpen the output" feel like filler phrases. More importantly, "push each other's boundaries" is a cliché that doesn't add real meaning. What does pushing boundaries actually look like in a creative team?
+
+3. "It's less about pleasing everyone and more about making the work count" — this is another generic contrast that sounds like it could appear in any article about teamwork. It doesn't provide a concrete, memorable insight.
+
+4. Overall, the tweet reads like a generic AI-generated take on the topic. To sound more human and professional, it would benefit from a specific observation, example, or contrarian angle rather than broad truisms. For instance, mentioning a real tension creative teams face (e.g., "the tension between trusting the brief and challenging it") would be more credible and engaging.
+
+The core idea (creative teams need productive disagreement) is valid, but the execution is too generic to feel authentic or insightful.
+2026-09-07 13:25:08 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=2
+2026-09-07 13:25:13 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:25:22 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=3 | characters=262
+2026-09-07 13:25:22 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=3 | characters=262
+2026-09-07 13:25:25 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=3
+2026-09-07 13:25:25 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=3 | feedback=The phrase "arguing—they argue about strategy" is redundant since the first word already introduces the concept of arguing. Also, "the team learns speed over politeness" feels slightly off—when a designer challenges something, it doesn't necessarily teach the team about speed. This insight is unclear and could be misinterpreted. Consider tightening the logic so each sentence builds more clearly on the previous one and the takeaway about disagreement feels more concrete and less abstract.
+2026-09-07 13:25:25 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=3
+2026-09-07 13:25:38 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=4 | characters=192
+2026-09-07 13:25:38 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=4 | characters=192
+2026-09-07 13:25:41 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=4
+2026-09-07 13:25:41 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=4 | feedback=There are two key issues that should be fixed:
+
+1. **Likely typo/conflict**: "Challenging a safe brand voice builds agility, not speed" contradicts itself conceptually—agility IS a form of speed/fast responsiveness. This line feels muddled and weakens the message. Consider whether you meant something like "challenging a safe brand voice builds depth, not speed" or clarify the intended contrast.
+
+2. **Repetitive phrasing**: The tweet uses "not ego" and "not speed" back-to-back in a parallel structure, but the word "not" appears too many times, making it feel mechanical rather than natural. Varying the phrasing would help it sound more human.
+
+Also worth noting: "turns good ideas into great ones" is a slightly cliché closing. Consider a more original takeaway.
+2026-09-07 13:25:41 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=4
+2026-09-07 13:25:43 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:26:00 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=5 | characters=215
+2026-09-07 13:26:00 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=5 | characters=215
+2026-09-07 13:26:06 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=5
+2026-09-07 13:26:06 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=5 | feedback=The closing phrase "Friction fuels greatness, turning solid concepts into unforgettable work" reads as a polished, slogan-like platitude that sounds AI-generated rather than human. Additionally, the opening "Top creative teams don't just argue" creates a slightly disjointed framing — the tweet then talks about strategy, agility, and friction, but the logical thread between "arguing," "strategy over ego," "pushing past safe brand norms," and "friction" feels loosely connected rather than cohesive. Tighten the conceptual flow and replace the cliché-style closer with something more specific or grounded to make it sound more human and authentic.
+2026-09-07 13:26:06 | WARNING  | app.graph.nodes:reviewer_router:188 - Tweet workflow stopped at maximum iterations | iteration=5 | max_iteration=5
+2026-09-07 13:26:06 | WARNING  | app.routes.tweet_route:generate_tweet:64 - Tweet generation reached max iterations | decision=rejected | iteration=5
+2026-09-07 13:26:14 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:26:44 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:27:14 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:27:44 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:28:15 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:28:45 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:29:15 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:29:46 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:30:16 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:30:46 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:31:16 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:31:46 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:32:17 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:32:47 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:33:17 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:33:47 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:34:17 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:34:48 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:35:18 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:35:48 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:36:18 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:36:49 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:37:20 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:40:34 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:41:05 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:41:10 | INFO     | app.routes.tweet_route:generate_tweet:21 - Tweet generation started | topic=What makes a great creative team
+Writing style: Professional
+2026-09-07 13:41:10 | INFO     | app.graph.nodes:generate_text:27 - Tweet generation node started | topic_length=60
+2026-09-07 13:41:18 | INFO     | app.graph.nodes:generate_text:57 - Tweet generation node completed | characters=262
+2026-09-07 13:41:18 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=0 | characters=262
+2026-09-07 13:41:20 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=rejected | iteration=0
+2026-09-07 13:41:20 | WARNING  | app.graph.nodes:review_text:118 - Tweet review rejected generated tweet | iteration=0 | feedback=The tweet reads as somewhat generic and formulaic, with phrases like "fusion of diverse talent," "shared vision," and "inspiration meets execution" sounding like common AI-generated or boilerplate motivational content. It lacks a specific, concrete insight that would make it feel truly professional and human. Consider replacing one of these abstract phrases with a more specific, grounded observation — such as mentioning the role of psychological safety, constructive disagreement, or how great teams balance autonomy with alignment — so it delivers a sharper takeaway rather than a string of clichés. Also, the closing question is fine but feels like a generic engagement prompt; make sure it ties directly to a specific point made in the tweet.
+2026-09-07 13:41:20 | INFO     | app.graph.nodes:improve_text:131 - Tweet improvement node started | iteration=0
+2026-09-07 13:41:30 | INFO     | app.graph.nodes:improve_text:170 - Tweet improvement node completed | iteration=1 | characters=199
+2026-09-07 13:41:30 | INFO     | app.graph.nodes:review_text:68 - Tweet review node started | iteration=1 | characters=199
+2026-09-07 13:41:34 | INFO     | app.graph.nodes:review_text:112 - Tweet review node completed | decision=approved | iteration=1
+2026-09-07 13:41:34 | INFO     | app.graph.nodes:reviewer_router:184 - Tweet workflow approved | iteration=1
+2026-09-07 13:41:34 | INFO     | app.routes.tweet_route:generate_tweet:55 - Tweet generation completed | decision=approved | iteration=1
+2026-09-07 13:41:35 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:42:05 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:42:36 | INFO     | app.main:root:10 - Health check requested
+2026-09-07 13:43:06 | INFO     | app.main:root:10 - Health check requested
