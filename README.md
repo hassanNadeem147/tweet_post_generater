@@ -377,4 +377,4 @@ The file under `app/tests/` is a workflow smoke script that invokes the real LLM
 - Do not commit `.venv`, `node_modules`, `.next`, or Python cache directories.
 - Review log files before sharing them because request topics may be included.
 - Use provider models and API credits appropriate for production workloads; free-model quotas are intended for limited development use.
-
+### Contact me: hassan07892026@outlook.com
